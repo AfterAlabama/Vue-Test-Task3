@@ -12,7 +12,8 @@
 </template>
 
 <script lang="ts">
-import { PropType, computed, defineComponent } from 'vue';
+import { computed, defineComponent } from 'vue';
+import type { PropType } from 'vue'
 import SingleItemButton from './SingleItemButton.vue';
 import SingleItemPrice from './SingleItemPrice.vue';
 import SingleItemRating from './SingleItemRating.vue';
