@@ -13,6 +13,6 @@ export interface Item {
   images?: string[]
 }
 
-export interface initialItemsList {
+export interface InitialItemsList {
   products: Item[]
 }

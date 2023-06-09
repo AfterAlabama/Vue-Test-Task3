@@ -9,7 +9,7 @@ import { computed, defineComponent } from 'vue';
 import ItemsComponent from './components/ItemsComponent.vue';
 import AppHeader from './components/AppHeader.vue';
 import Snackbar from './components/Snackbar.vue';
-import { Item, initialItemsList } from './types/ItemsList';
+import type { Item, InitialItemsList } from './types/ItemsList';
 import { fetchItems } from './helpers/fetchItems';
 
 export default defineComponent({
@@ -26,7 +26,7 @@ export default defineComponent({
 		};
 	},
 	async created() {
-		const res = await fetchItems<initialItemsList>(
+		const res = await fetchItems<InitialItemsList>(
 			'https://dummyjson.com/products?limit=10'
 		);
 		this.itemsList = res.products;
