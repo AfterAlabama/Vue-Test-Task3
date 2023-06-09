@@ -5,16 +5,22 @@
 	</div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent, inject } from 'vue';
+import type { Item } from '../../types/ItemsList';
+
+export default defineComponent({
 	name: 'SingleItemDiscount',
-	inject: ['item'],
 	data() {
 		return {
-			discount: Math.round(this.item.discountPercentage),
+			item: inject<Item>('item') as Item,
+			discount: 0,
 		};
 	},
-};
+	created() {
+		this.discount = Math.round(this.item.discountPercentage);
+	},
+});
 </script>
 
 <style scoped>
@@ -35,7 +41,7 @@ export default {
 	content: ' \20BD';
 }
 
-#discountContainer > div:last-child  {
+#discountContainer > div:last-child {
 	display: flex;
 	justify-content: center;
 	align-items: center;

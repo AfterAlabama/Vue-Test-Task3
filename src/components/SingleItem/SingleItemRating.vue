@@ -9,16 +9,22 @@
 	</div>
 </template>
 
-<script>
-export default {
+<script lang="ts" >
+import { defineComponent, inject } from 'vue';
+import type { Item } from '../../types/ItemsList';
+
+export default defineComponent({
 	name: 'SingleItemRating',
-	inject:['item'],
 	data() {
 		return {
-			stars: Math.round(this.item.rating),
+			item: inject<Item>('item') as Item,
+			stars: 0,
 		};
 	},
-};
+	created(){
+		this.stars = Math.round(this.item.rating)
+	}
+});
 </script>
 
 <style scoped>

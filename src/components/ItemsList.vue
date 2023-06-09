@@ -9,12 +9,17 @@
 </template>
 
 <script lang="ts" >
-import { defineComponent } from 'vue';
+import { defineComponent, inject } from 'vue';
 import SingleItem from './SingleItem/SingleItem.vue';
+import type { Item } from '../types/ItemsList';
 
 export default defineComponent({
 	name: 'ItemsList',
-	inject: ['itemsList'],
+	data(){
+		return {
+			itemsList: inject<Item[]>('itemsList') as Item[]
+		}
+	},
 	components: { SingleItem },
 });
 </script>

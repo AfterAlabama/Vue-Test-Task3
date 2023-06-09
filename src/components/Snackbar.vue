@@ -4,16 +4,18 @@
 	</Transition>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 import { store } from '../store/store';
-export default {
+
+export default defineComponent({
 	name: 'SnackBar',
 	data() {
 		return {
 			store,
 		};
 	},
-};
+});
 </script>
 
 <style scoped>
@@ -31,9 +33,9 @@ article {
 	font-size: 20px;
 }
 
-@media(max-width:700px){
+@media (max-width: 700px) {
 	article {
-		left: 20%
+		left: 20%;
 	}
 }
 

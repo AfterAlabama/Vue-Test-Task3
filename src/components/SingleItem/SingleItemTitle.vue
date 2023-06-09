@@ -2,11 +2,18 @@
 	<p>{{ item.title }}</p>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent, inject } from 'vue';
+import type { Item } from '../../types/ItemsList';
+
+export default defineComponent({
 	name: 'SingleItemTitle',
-	inject: ['item'],
-};
+	data() {
+		return {
+			item: inject<Item>('item') as Item,
+		};
+	},
+});
 </script>
 
 <style scoped>
@@ -15,6 +22,6 @@ p {
 	font-weight: 600;
 	font-size: 15px;
 	color: #333333;
-  text-align: center;
+	text-align: center;
 }
 </style>

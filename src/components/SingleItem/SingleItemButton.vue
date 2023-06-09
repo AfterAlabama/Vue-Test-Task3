@@ -1,18 +1,20 @@
 <template>
-	<button @click="store.setPurchase(this.currentPrice)">В корзину</button>
+	<button @click="store.setPurchase(currentPrice)">В корзину</button>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent, inject } from 'vue';
 import { store } from '../../store/store';
-export default {
+
+export default defineComponent({
 	name: 'SingleItemButton',
-	inject: ['currentPrice'],
 	data() {
 		return {
 			store,
+			currentPrice: inject<number>('currentPrice') as number,
 		};
 	},
-};
+});
 </script>
 
 <style scoped>

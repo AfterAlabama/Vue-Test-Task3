@@ -8,6 +8,7 @@
 <script>
 import SingleItemCurrentPrice from './SingleItemCurrentPrice.vue';
 import SingleItemDiscount from './SingleItemDiscount.vue';
+
 export default {
 	name: 'SingleItemPrice',
 	components: {

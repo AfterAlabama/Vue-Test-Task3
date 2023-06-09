@@ -11,16 +11,18 @@
 	</header>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 import { store } from '../store/store';
-export default {
+
+export default defineComponent({
 	name: 'AppHeader',
 	data() {
 		return {
 			store,
 		};
 	},
-};
+});
 </script>
 
 <style scoped>
@@ -35,8 +37,6 @@ header {
 	justify-content: flex-end;
 }
 
-
-
 header > button {
 	display: flex;
 	justify-content: space-evenly;
@@ -49,12 +49,12 @@ header > button {
 	border: none;
 }
 
-@media(max-width:700px){
+@media (max-width: 700px) {
 	header {
 		justify-content: center;
 	}
 	header > button {
-		height: 40px
+		height: 40px;
 	}
 }
 

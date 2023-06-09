@@ -11,24 +11,29 @@
 	</article>
 </template>
 
-<script>
-import { computed } from 'vue';
+<script lang="ts">
+import { PropType, computed, defineComponent } from 'vue';
 import SingleItemButton from './SingleItemButton.vue';
 import SingleItemPrice from './SingleItemPrice.vue';
 import SingleItemRating from './SingleItemRating.vue';
 import SingleItemTitle from './SingleItemTitle.vue';
+import type { Item } from '../../types/ItemsList';
 
-export default {
+export default defineComponent({
 	name: 'SingleItem',
+	props: {
+		item: {
+			type: Object as PropType<Item>,
+			required: true,
+		},
+	},
 	data() {
 		return {
 			currentPrice: Math.ceil(
-				this.item.price - (this.item.price / 100) * Math.round(this.item.discountPercentage)
+				this.item.price -
+					(this.item.price / 100) * Math.round(this.item.discountPercentage)
 			),
 		};
-	},
-	props: {
-		item: Object,
 	},
 	provide() {
 		return {
@@ -42,7 +47,7 @@ export default {
 		SingleItemTitle,
 		SingleItemRating,
 	},
-};
+});
 </script>
 
 <style scoped>
