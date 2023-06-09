@@ -6,7 +6,7 @@
 ```
 
 # Live Demo
-
+https://musical-dragon-58d4bd.netlify.app
 
 # О задании
 1) Стэк: Vue (Options API) + Typescript
